@@ -1,0 +1,7 @@
+.DS_Store
+.gradle
+.idea
+build
+si-gradle-plugin.iml
+si-gradle-plugin.ipr
+si-gradle-plugin.iws
