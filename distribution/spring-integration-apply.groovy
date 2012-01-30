@@ -1,13 +1,12 @@
 buildscript {
     repositories {
-        mavenLocal()
-        maven {
-            url "https://raw.github.com/ghillert/spring-integration-gradle-plugin/master/distribution"
-        }
+
+        mavenRepo url: "https://raw.github.com/ghillert/spring-integration-gradle-plugin/master/distribution"
+       // mavenLocal()
     }
 
     dependencies {
-        classpath group: 'org.springframework.integration.gradle', name: 'si-gradle-plugin', version: '1.0.BUILD-SNAPSHOT'
+        classpath 'org.springframework.integration.gradle:si-gradle-plugin:1.0.0.M1.BUILD-SNAPSHOT'
     }
 }
 

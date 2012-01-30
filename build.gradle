@@ -17,5 +17,5 @@ dependencies {
 }
 
 group   = 'org.springframework.integration.gradle'
-version = '1.0.BUILD-SNAPSHOT'
+version = '1.0.0.M1.BUILD-SNAPSHOT'
 

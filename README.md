@@ -8,7 +8,6 @@ Spring Integration Gradle Plugin
 1. Create (if not exists) **init.gradle** (usually under *~/.gradle*)
 2. Add the following lines
 
-
     gradle.beforeProject { prj ->
         prj.apply from: 'https://raw.github.com/ghillert/spring-integration-gradle-plugin/master/distribution/spring-integration-apply.groovy'
     }
@@ -17,34 +16,44 @@ Spring Integration Gradle Plugin
 
 ### Check out repository from Git
 
-    $ git clone git@github.com/spring-integration-gradle-plugin.git
+    $ git clone git://github.com/ghillert/spring-integration-gradle-plugin.git
 
 ### Compile and Install Plugin to local Maven Repo
 
     $ gradle clean install
 
-### Make Gradle aware of plugin
+### Using the locally installed plugin
 
-You can either add the plugin to a local project (adding the plugin to **build.gradle**)
-or you can add the plugin to **init.gradle** (plugin will be available globally)
+    $ mkdir myProject
+    $ cd myProject
 
-#### Local Install
-
-Add to build.gradle:
+Create a file **build.gradle** with the following initial configuration:
 
     buildscript {
-	    repositories {
-    mavenLocal()
-	    }
+        repositories {
+            mavenLocal()
+        }
         dependencies {
-            classpath group: 'org.springframework.integration.gradle', name: 'si-gradle-plugin', version: '1.0.BUILD-SNAPSHOT'
+            classpath group: 'org.springframework.integration.gradle', name: 'si-gradle-plugin', version: '1.0.0.M1.BUILD-SNAPSHOT'
         }
     }
-    if (!project.plugins.findPlugin(templates.TemplatesPlugin)) {
-	    project.apply(plugin: templates.TemplatesPlugin)
-    }
 
-#### Global Install
+    apply plugin: 'spring-integration'
+
+Now the gradle plugin should show up when you execute:
+
+    $ gradle tasks
+
+    ...
+
+    Spring Integration tasks
+    ------------------------
+    create-project-simple - Creates a very basic Spring Integration project (command line based)
+    ...
+
+### Making the Gradle plugin available globally
+
+You can also add the plugin to **init.gradle** (plugin will be available globally)
 
 Create (if not exists) **init.gradle** (usually under *~/.gradle*)
 
